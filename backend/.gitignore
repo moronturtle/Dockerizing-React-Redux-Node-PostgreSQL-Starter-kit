@@ -1,0 +1,4 @@
+node_modules
+config/keys.js
+npm-debug.log
+.vscode/
