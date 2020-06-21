@@ -10,6 +10,7 @@ services:
     command: npm run dev
     volumes:
       - ${PWD}/backend:/usr/src/app
+      - /usr/src/app/node_modules/
 
   db:
     image: "postgres:12"
@@ -22,7 +23,8 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ${PWD}/postgres/data/:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
+      - ${PWD}/db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   frontend:
     container_name: "react_frontend"
@@ -35,3 +37,4 @@ services:
     command: npm start
     volumes:
       - ${PWD}/frontend:/usr/src/app
+      - /usr/src/app/node_modules/

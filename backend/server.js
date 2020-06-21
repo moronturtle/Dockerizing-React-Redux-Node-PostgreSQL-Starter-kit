@@ -27,5 +27,5 @@ app.get("/test_query", (request, response) => {
   });
 });
 app.listen(port, () => {
-  console.log(`running in port  ${port}.`);
+  console.log(`running in port ${port}.`);
 });
